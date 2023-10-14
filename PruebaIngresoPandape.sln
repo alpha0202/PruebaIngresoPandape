@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaIngresoPandape", "PruebaIngresoPandape\PruebaIngresoPandape.csproj", "{6A809C3B-1AF6-49D7-9CFC-3A4BA7DE28E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaIngreso.Data", "PruebaIngreso.Data\PruebaIngreso.Data.csproj", "{42039954-FFEC-4B5E-B03B-B6BE320A71DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A809C3B-1AF6-49D7-9CFC-3A4BA7DE28E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A809C3B-1AF6-49D7-9CFC-3A4BA7DE28E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A809C3B-1AF6-49D7-9CFC-3A4BA7DE28E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A809C3B-1AF6-49D7-9CFC-3A4BA7DE28E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42039954-FFEC-4B5E-B03B-B6BE320A71DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42039954-FFEC-4B5E-B03B-B6BE320A71DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42039954-FFEC-4B5E-B03B-B6BE320A71DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42039954-FFEC-4B5E-B03B-B6BE320A71DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {262925A1-D18F-452E-A6BC-E87ECEE43E9A}
+	EndGlobalSection
+EndGlobal
