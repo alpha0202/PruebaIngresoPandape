@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PruebaIngreso.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,5 +27,8 @@ namespace PruebaIngreso.Data
         }
 
 
+        public DbSet<Candidates> Candidates { get; set; }
+
+        public DbSet<CandidateExperiences> CandidateExperiences { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PruebaIngreso.Data;
+using PruebaIngreso.Repository;
 
 namespace PruebaIngresoPandape
 {
@@ -16,7 +17,8 @@ namespace PruebaIngresoPandape
             builder.Services.AddDbContext<MyDbContext>(options => options.UseSqlite(connectionString));
 
 
-
+            //inyectar la interfaz
+            builder.Services.AddScoped<ICandidatesRepository, CandidatesRepository>();
 
 
 
