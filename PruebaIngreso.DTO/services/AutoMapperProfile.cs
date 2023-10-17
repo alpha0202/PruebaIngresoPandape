@@ -12,7 +12,7 @@ namespace PruebaIngreso.DTO.services
     {
         public AutoMapperProfile()
         {
-            CreateMap<Candidates, CandidateDTO>();
+            CreateMap<Candidate, CandidateDTO>();
 
             CreateMap<CandidateExperiences, CandidateExperiencesDTO>();
         }

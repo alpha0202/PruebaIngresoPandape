@@ -27,24 +27,41 @@ namespace PruebaIngreso.Repository
         public async Task<IEnumerable<CandidateDTO>> GetAllCandidates()
         {
             //return await _myDbContext.Candidates.Include(e => e.CandidateExperiences).ToListAsync();
-            return await _myDbContext.Candidates.ProjectTo<CandidateDTO>(_mapper.ConfigurationProvider).ToListAsync();
+            //return await _myDbContext.Candidates.ProjectTo<CandidateDTO>(_mapper.ConfigurationProvider).ToListAsync();
+            return await _myDbContext.Candidates.Select(a => new CandidateDTO { 
+                Id = a.Id,
+                Name = a.Name,
+                SurName = a.SurName,
+                Email = a.Email,
+                InsertDate = a.InsertDate                   
+            }).ToListAsync();
             
         }
 
         //get details
-        public async Task<Candidates> GetDatailCandidates(int Id)
+        public async Task<CandidateDTO> GetDatailCandidates(int Id)
         {
-            var Candidate = await _myDbContext.Candidates.Include(c=> c.CandidateExperiences).FirstOrDefaultAsync(e => e.Id == Id);
+            //var Candidate = await _myDbContext.Candidates.Include(c=> c.CandidateExperiences).FirstOrDefaultAsync(e => e.Id == Id);
+            var Candidate = await _myDbContext.Candidates
+                .Include(c=> c.CandidateExperiences
+                              .OrderByDescending(o=> o.IdCandidate))
+                .FirstOrDefaultAsync(e => e.Id == Id); 
+
             if(Candidate == null)
             {
                  throw new Exception("Candidate does not exist");
             }
-            return Candidate;
+
+            var candidateDto =  _mapper.Map<CandidateDTO>(Candidate);
+            candidateDto.CandidateExperiences = candidateDto.CandidateExperiences.DistinctBy(c => c.Id).ToList();
+
+            return candidateDto;
+           
         }
 
 
         //insert candidate
-        public async Task SaveCandidate(Candidates candidate)
+        public async Task SaveCandidate(Candidate candidate)
         {
             if (candidate.CandidateExperiences == null)
             {
@@ -60,7 +77,7 @@ namespace PruebaIngreso.Repository
 
 
         //update
-        public async Task UpdateCandidate(Candidates candidate)
+        public async Task UpdateCandidate(Candidate candidate)
         {
             if (candidate == null)
                 throw new Exception("No data to update");

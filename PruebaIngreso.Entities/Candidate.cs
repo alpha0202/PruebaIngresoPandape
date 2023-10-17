@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PruebaIngreso.Entities
 {
-    public class Candidates
+    public class Candidate
     {
         public int Id { get; set; }
         public string Name { get; set; }

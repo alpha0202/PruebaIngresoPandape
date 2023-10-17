@@ -12,11 +12,11 @@ namespace PruebaIngreso.Repository
     {
         Task<IEnumerable<CandidateDTO>> GetAllCandidates();
 
-        Task<Candidates> GetDatailCandidates(int Id);
+        Task<CandidateDTO> GetDatailCandidates(int Id);
 
-        Task SaveCandidate(Candidates candidate);
+        Task SaveCandidate(Candidate candidate);
 
-        Task UpdateCandidate(Candidates candidate);
+        Task UpdateCandidate(Candidate candidate);
         
         Task DeleteCandidate(int Id);
     }

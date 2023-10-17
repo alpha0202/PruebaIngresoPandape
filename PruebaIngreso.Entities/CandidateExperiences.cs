@@ -19,7 +19,7 @@ namespace PruebaIngreso.Entities
         public DateTime EndDate { get; set; }
         public DateTime InsertDate { get; set; }
         public DateTime ModifyDate { get; set; }
-        public Candidates Candidato { get; set; }
+        public Candidate Candidato { get; set; }
 
 
     }

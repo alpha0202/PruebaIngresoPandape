@@ -11,8 +11,8 @@ using PruebaIngreso.Data;
 namespace PruebaIngreso.Data.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20231015173517_initial")]
-    partial class initial
+    [Migration("20231017025248_custom_candidate")]
+    partial class custom_candidate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,66 +20,23 @@ namespace PruebaIngreso.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.12");
 
-            modelBuilder.Entity("PruebaIngreso.Entities.CandidateExperiences", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("BeginDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int?>("CandidatesId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Company")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("IdCandidate")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("InsertDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Job")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("ModifyDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("Salary")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CandidatesId");
-
-                    b.ToTable("CandidateExperiences");
-                });
-
-            modelBuilder.Entity("PruebaIngreso.Entities.Candidates", b =>
+            modelBuilder.Entity("PruebaIngreso.Entities.Candidate", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("BirthDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("date");
 
                     b.Property<string>("Email")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("InsertDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("date");
 
                     b.Property<DateTime>("ModifyDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("date");
 
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
@@ -94,12 +51,57 @@ namespace PruebaIngreso.Data.Migrations
 
             modelBuilder.Entity("PruebaIngreso.Entities.CandidateExperiences", b =>
                 {
-                    b.HasOne("PruebaIngreso.Entities.Candidates", null)
-                        .WithMany("CandidateExperiences")
-                        .HasForeignKey("CandidatesId");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("BeginDate")
+                        .HasColumnType("date");
+
+                    b.Property<int?>("CandidatoId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Company")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("date");
+
+                    b.Property<int>("IdCandidate")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("InsertDate")
+                        .HasColumnType("date");
+
+                    b.Property<string>("Job")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("ModifyDate")
+                        .HasColumnType("date");
+
+                    b.Property<decimal>("Salary")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CandidatoId");
+
+                    b.ToTable("CandidateExperiences");
                 });
 
-            modelBuilder.Entity("PruebaIngreso.Entities.Candidates", b =>
+            modelBuilder.Entity("PruebaIngreso.Entities.CandidateExperiences", b =>
+                {
+                    b.HasOne("PruebaIngreso.Entities.Candidate", "Candidato")
+                        .WithMany("CandidateExperiences")
+                        .HasForeignKey("CandidatoId");
+
+                    b.Navigation("Candidato");
+                });
+
+            modelBuilder.Entity("PruebaIngreso.Entities.Candidate", b =>
                 {
                     b.Navigation("CandidateExperiences");
                 });
