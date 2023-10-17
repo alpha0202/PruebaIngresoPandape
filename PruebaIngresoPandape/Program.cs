@@ -21,9 +21,8 @@ namespace PruebaIngresoPandape
             builder.Services.AddScoped<ICandidatesRepository, CandidatesRepository>();
 
 
-
-
-
+            //inyectar automapper
+            builder.Services.AddAutoMapper(typeof(Program));
 
             var app = builder.Build();
 

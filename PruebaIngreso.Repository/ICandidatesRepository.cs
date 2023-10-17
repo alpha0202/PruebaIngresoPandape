@@ -1,4 +1,5 @@
-﻿using PruebaIngreso.Entities;
+﻿using PruebaIngreso.DTO;
+using PruebaIngreso.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace PruebaIngreso.Repository
 {
     public interface ICandidatesRepository
     {
-        Task<IEnumerable<Candidates>> GetAllCandidates();
+        Task<IEnumerable<CandidateDTO>> GetAllCandidates();
 
         Task<Candidates> GetDatailCandidates(int Id);
 
