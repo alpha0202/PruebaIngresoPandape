@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using PruebaIngreso.Data;
 using PruebaIngreso.Repository;
 using PruebaIngreso.Interactor;
+using PruebaIngreso.Presenter;
 using System.Text.Json.Serialization;
 
 namespace PruebaIngresoPandape
@@ -26,6 +27,9 @@ namespace PruebaIngresoPandape
 
             //refenciar al dbcontext personalizado en el pry Interactor
             builder.Services.DependencyInteractor();
+            
+            //refenciar al dbcontext personalizado en el pry Presenter
+            builder.Services.DependencyPresenter();
 
             //inyectar automapper
             builder.Services.AddAutoMapper(typeof(Program));

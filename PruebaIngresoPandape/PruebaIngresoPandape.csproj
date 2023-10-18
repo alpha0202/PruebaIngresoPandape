@@ -17,6 +17,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.9" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,7 +25,12 @@
     <ProjectReference Include="..\PruebaIngreso.DTO\PruebaIngreso.DTO.csproj" />
     <ProjectReference Include="..\PruebaIngreso.Entities\PruebaIngreso.Entities.csproj" />
     <ProjectReference Include="..\PruebaIngreso.Interactor\PruebaIngreso.Interactor.csproj" />
+    <ProjectReference Include="..\PruebaIngreso.Presenter\PruebaIngreso.Presenter.csproj" />
     <ProjectReference Include="..\PruebaIngreso.Repository\PruebaIngreso.Repository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Img\" />
   </ItemGroup>
 
 </Project>

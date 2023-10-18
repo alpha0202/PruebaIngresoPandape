@@ -16,6 +16,9 @@ namespace PruebaIngreso.Interactor
         {
 
             services.AddScoped<IGetAllCandidatesInputPort, GetAllCandidatesInteractor>();
+            services.AddScoped<IGetDetailsCandidateInputPort, GetDetailsCandidateInteractor>();
+            services.AddScoped<IDeleteCandidateInputPort, DeleteCandidateInteractor>();
+            services.AddScoped<ISaveCandidateInputPort, SaveCandidateInteractor>();
 
 
             return services;

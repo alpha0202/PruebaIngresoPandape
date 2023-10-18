@@ -33,7 +33,8 @@ namespace PruebaIngreso.Repository
                 Name = a.Name,
                 SurName = a.SurName,
                 Email = a.Email,
-                InsertDate = a.InsertDate                   
+                InsertDate = a.InsertDate
+                
             }).ToListAsync();
             
         }
