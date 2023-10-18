@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PruebaIngreso.DTO\PruebaIngreso.DTO.csproj" />
+    <ProjectReference Include="..\PruebaIngreso.Entities\PruebaIngreso.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

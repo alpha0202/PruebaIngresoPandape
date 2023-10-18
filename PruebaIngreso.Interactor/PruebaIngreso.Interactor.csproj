@@ -6,4 +6,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PruebaIngreso.Entities\PruebaIngreso.Entities.csproj" />
+    <ProjectReference Include="..\PruebaIngreso.InputPort\PruebaIngreso.InputPort.csproj" />
+    <ProjectReference Include="..\PruebaIngreso.OutputPort\PruebaIngreso.OutputPort.csproj" />
+    <ProjectReference Include="..\PruebaIngreso.Repository\PruebaIngreso.Repository.csproj" />
+  </ItemGroup>
+
 </Project>

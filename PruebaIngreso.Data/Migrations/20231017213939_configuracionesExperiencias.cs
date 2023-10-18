@@ -5,7 +5,7 @@
 namespace PruebaIngreso.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class custom_candidate : Migration
+    public partial class configuracionesExperiencias : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

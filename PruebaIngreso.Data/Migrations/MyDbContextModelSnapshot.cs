@@ -27,7 +27,8 @@ namespace PruebaIngreso.Data.Migrations
                         .HasColumnType("date");
 
                     b.Property<string>("Email")
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(250)
+                        .HasColumnType("email");
 
                     b.Property<DateTime>("InsertDate")
                         .HasColumnType("date");
@@ -36,9 +37,13 @@ namespace PruebaIngreso.Data.Migrations
                         .HasColumnType("date");
 
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("SurName")
+                        .IsRequired()
+                        .HasMaxLength(150)
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -59,9 +64,11 @@ namespace PruebaIngreso.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Company")
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
+                        .HasMaxLength(4000)
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("EndDate")
@@ -74,12 +81,14 @@ namespace PruebaIngreso.Data.Migrations
                         .HasColumnType("date");
 
                     b.Property<string>("Job")
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("ModifyDate")
                         .HasColumnType("date");
 
                     b.Property<decimal>("Salary")
+                        .HasPrecision(8, 2)
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

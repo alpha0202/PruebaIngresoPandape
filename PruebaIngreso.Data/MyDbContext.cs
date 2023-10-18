@@ -19,7 +19,7 @@ namespace PruebaIngreso.Data
         protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
         {
             configurationBuilder.Properties<DateTime>().HaveColumnType("date");
-
+            
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -31,12 +31,9 @@ namespace PruebaIngreso.Data
         {
             base.OnModelCreating(modelBuilder);
 
+           
+          
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-
-            modelBuilder.Entity<Candidate>().Property(p=> p.InsertDate).HasColumnType("date");
-            modelBuilder.Entity<Candidate>().Property(p=> p.BirthDate).HasColumnType("date");
-            modelBuilder.Entity<Candidate>().Property(p=> p.ModifyDate).HasColumnType("date");
-
         }
 
 

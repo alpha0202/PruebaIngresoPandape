@@ -14,10 +14,10 @@ namespace PruebaIngreso.Repository
 
         Task<CandidateDTO> GetDatailCandidates(int Id);
 
-        Task SaveCandidate(Candidate candidate);
+        Task<bool> SaveCandidate(Candidate candidate);
 
         Task UpdateCandidate(Candidate candidate);
         
-        Task DeleteCandidate(int Id);
+        Task<int> DeleteCandidate(int Id);
     }
 }

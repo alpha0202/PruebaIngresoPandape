@@ -16,12 +16,14 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PruebaIngreso.Data\PruebaIngreso.Data.csproj" />
     <ProjectReference Include="..\PruebaIngreso.DTO\PruebaIngreso.DTO.csproj" />
     <ProjectReference Include="..\PruebaIngreso.Entities\PruebaIngreso.Entities.csproj" />
+    <ProjectReference Include="..\PruebaIngreso.Interactor\PruebaIngreso.Interactor.csproj" />
     <ProjectReference Include="..\PruebaIngreso.Repository\PruebaIngreso.Repository.csproj" />
   </ItemGroup>
 

@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using PruebaIngreso.Data;
 using PruebaIngreso.Repository;
+using PruebaIngreso.Interactor;
+using System.Text.Json.Serialization;
 
 namespace PruebaIngresoPandape
 {
@@ -11,15 +13,19 @@ namespace PruebaIngresoPandape
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews().AddJsonOptions(opt => opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles); 
 
+            //referenciar a dbcontext propio
             var connectionString = builder.Configuration.GetConnectionString("PruebaIngresoContext");
             builder.Services.AddDbContext<MyDbContext>(options => options.UseSqlite(connectionString));
+
 
 
             //inyectar la interfaz
             builder.Services.AddScoped<ICandidatesRepository, CandidatesRepository>();
 
+            //refenciar al dbcontext personalizado en el pry Interactor
+            builder.Services.DependencyInteractor();
 
             //inyectar automapper
             builder.Services.AddAutoMapper(typeof(Program));

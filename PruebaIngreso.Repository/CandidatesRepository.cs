@@ -61,7 +61,7 @@ namespace PruebaIngreso.Repository
 
 
         //insert candidate
-        public async Task SaveCandidate(Candidate candidate)
+        public async Task<bool> SaveCandidate(Candidate candidate)
         {
             if (candidate.CandidateExperiences == null)
             {
@@ -72,6 +72,7 @@ namespace PruebaIngreso.Repository
             await _myDbContext.AddRangeAsync(candidate.CandidateExperiences);
             await _myDbContext.SaveChangesAsync();
 
+            return true;
         }
 
 
@@ -107,16 +108,22 @@ namespace PruebaIngreso.Repository
 
 
         //delete candidate and experiences
-        public async Task DeleteCandidate(int Id)
+        public async Task<int> DeleteCandidate(int Id)
         {
+            int respuesta = 0;
             var delExistingCandidate = await _myDbContext.Candidates.Include(e => e.CandidateExperiences).FirstOrDefaultAsync(o => o.Id ==Id);
 
             if (delExistingCandidate == null)
+            {
                 throw new Exception("canditate is not found");
+               
+            }
             _myDbContext.CandidateExperiences.RemoveRange(delExistingCandidate.CandidateExperiences);
             _myDbContext.Candidates.Remove(delExistingCandidate); 
             await _myDbContext.SaveChangesAsync();
+            respuesta = 1;
 
+            return respuesta;
         }
 
     }
